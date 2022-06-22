@@ -1,0 +1,27 @@
+<%-include('./partials/header.ejs')%>
+        <main>
+            <div id="part1">
+                <img src=<%=tradeData.image%> height="350" width="300" alt="Pikachu Image">
+                <%console.log(tradeData.image)%>
+            </div>
+            <div id="subpart1">
+                <h2><%=tradeData.category%></h2>
+                <h4><%=tradeData.cardname%></h4>
+                <p><%=tradeData.details%></p>
+                <br>
+                <p>The card was purchased in the year <%= tradeData.purchasedYear%>.</p>
+                <br>
+                <p>The card is in <%= tradeData.condition%> condition.</p>
+            </div>
+
+            <div id="part2">
+                <p>Are you interested in this trade?</p>
+                <input class="buttons" type="button" value="Rate It" onclick="parent.location='/trades'">
+                <input class="buttons" type="button" value="Trade It" onclick="parent.location='/trades'" >
+                <form>
+                <button class ="buttons" type="submit" formmethod="GET" formaction="/trade/<%=tradeData.id%>/edit">Edit</button>
+                <button class = "buttons" type="submit" formmethod="POST" formaction="/trade/<%=tradeData.id%>/delete?_method=DELETE">Delete</button>
+                </form>
+            </div>
+        </main>
+<%-include('./partials/footer.ejs')%>

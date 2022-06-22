@@ -1,0 +1,23 @@
+<%-include('./partials/header.ejs')%>
+        <main>
+            <form method="POST" action="/trade/<%=tradeData.id%>?_method=PUT">
+                <label for="category" > CATEGORY </label>
+                <input type="text" id="category" name="category" value="<%=tradeData.category%>" required>
+
+                <label for="cardname"> NAME </label>
+                <input type="text" id="cardname" name="cardname" value="<%=tradeData.cardname%>" required>
+                
+                <label for="details"> DETAILS </label>
+                <textarea id="details" name="details" required minlength="10"><%=tradeData.details%></textarea>
+                
+                <label for="condition"> Condition </label>
+                <input type="text" id="condition" name="condition" value="<%=tradeData.condition%>" required>
+
+                <label for="purchasedyear"> Purchased Year </label>
+                <input type="number" id="purchasedYear" name="purchasedyear" max="2022" value="<%=tradeData.purchasedYear%>" required>
+
+                <input type="submit" value="Update" id="submit">
+            </form>
+        </main>
+
+<%-include('./partials/footer.ejs')%>

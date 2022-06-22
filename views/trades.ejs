@@ -1,0 +1,29 @@
+<%-include('./partials/header.ejs')%>
+        <main>
+            <div>
+            <%const catArr = [];
+            tradeData.forEach(tr=>{if(catArr.includes(tr.category)==false){catArr.push(tr.category);}})
+            i=0;
+            while(i<catArr.length){%>
+            <h2><%= catArr[i]%> Trading Cards</h2>
+                <%if (tradeData.length){
+                    tradeData.forEach(tr =>{
+                        if(tr.category ===catArr[i]){%>
+                            <a href="/trade/<%=tr.id%>"><%=tr.cardname%></a>
+                        <%}})} else {%>
+                            <p>There are no stories to display.</p>
+                            <%}i=i+1;}%>
+            <%if (tradeData.length ===0){
+                %><p>There are no cards to display!!!!</p>
+                <%}%>
+            <!-- <h2>Pokemon Trading Cards</h2>          
+                <%if (tradeData.length){
+                    tradeData.forEach(tr =>{
+                        if(tr.category ==='WWE'){%>
+                            <a href="/trade/<%=tr.id%>"><li><%=tr.cardname%></li></a>
+                        <%}})} else {%>
+                            <p>There are no stories to display.</p>
+                            <%}%> -->
+            </div>
+        </main>
+<%-include('./partials/footer.ejs')%>

@@ -1,0 +1,26 @@
+<%-include('./partials/header.ejs')%>
+        <main>
+            <form method="POST" action="/trades/new">
+                <label for="category" > CATEGORY </label>
+                <input type="text" id="category" name="category" required>
+
+                <label for="cardname"> NAME </label>
+                <input type="text" id="cardname" name="cardname" required>
+                
+                <label for="details"> DETAILS </label>
+                <textarea id="details" name="details" required minlength="10"></textarea>
+                
+                <label for="condition"> Condition </label>
+                <input type="text" id="condition" name="condition" required>
+
+                <label for="purchasedyear"> Purchased Year </label>
+                <input type="number" id="purchasedyear" name="purchasedYear" max="2022" required>
+
+                <label for="image">Choose an image for trade</label>
+                <input type="file" id="image" name="image" required>
+
+                <input type="submit" value="Create New Trade" id="submit">
+            </form>
+        </main>
+
+<%-include('./partials/footer.ejs')%>
